@@ -5,7 +5,7 @@
   tasks: 
   - name: install mysql
     ansible.builtin.package:
-    name: mysql-server
-    state: present
+     name: mysql-server
+      state: present
 
 

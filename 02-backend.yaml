@@ -13,7 +13,9 @@
 
   - name: installing nodejs
     ansible.builtin.package:
-      name: nodejs
+      name:
+      - nodejs
+      - mysql
       state: present
 
   - name: adding user

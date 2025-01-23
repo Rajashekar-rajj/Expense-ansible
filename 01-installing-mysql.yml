@@ -5,7 +5,7 @@
     mysql_password: ExpenceApp@1
     login_host: mysql.rajashekar-devops.online
   tasks: 
-  - name: installing apython packages
+  - name: installing python packages
     ansible.builtin.pip: 
       name: PyMySQL
       executable: pip3.9
@@ -25,7 +25,7 @@
       login_user: root
       login_password: "{{ mysql_password }}"
       login_host: "{{ login_host }}"
-      ignore_errors: true
+    ignore_errors: true
     register: mysql_info
     
   - name: print mysql info

@@ -5,18 +5,20 @@
     mysql_password: ExpenceApp@1
     login_host: backend.rajashekar-devops.online
   tasks:
+  
   - name: disable nodejs
     ansible.builtin.command: dnf module disable nodejs -y
 
   - name: enable nodejs:20
     ansible.builtin.command: dnf module enable nodejs:20 -y
 
-  - name: installing nodejs
+  - name: installation
     ansible.builtin.package:
-      name:
-      - nodejs
-      - mysql
-      state: present
+      name: "{{ item }}"
+      state: present 
+    loop:
+    - nodejs
+    - mysql
 
   - name: adding user
     ansible.builtin.user:
@@ -47,6 +49,12 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
+
+  - name: installing python packages
+    ansible.builtin.pip: 
+      name: PyMySQL
+      executable: pip3.9
+
 
   - name: import my sql data
     community.mysql.mysql_db:

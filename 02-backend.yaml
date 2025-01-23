@@ -40,10 +40,10 @@
     ansible.builtin.command: npm install
     args:
       chdir: /app
-      
+
   - name: copy backend-service
-    src: backend.service
-    dest: /etc/systemd/system/backend.service
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
 
   - name: import my sql data
     community.mysql.mysql_db:

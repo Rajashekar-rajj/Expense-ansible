@@ -49,6 +49,7 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
+      remote_src: yes
 
   - name: installing python packages
     ansible.builtin.pip: 

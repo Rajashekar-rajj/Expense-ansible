@@ -1,6 +1,9 @@
 - name: configure backend
   hosts: backend
   become: yes
+  vars:   
+    mysql_password: ExpenceApp@1
+    login_host: mysql.rajashekar-devops.online
   tasks:
   - name: disable nodejs
     ansible.builtin.command: dnf module disable nodejs -y
@@ -33,5 +36,21 @@
       dest: /app
       remote_src: yes
 
+  - name: install depemdencies
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app
+      
+  - name: copy backend-service
+    src: backend.service
+    dest: /etc/systemd/system/backend.service
 
+  - name: import my sql data
+    community.mysql.mysql_db:
+      login_user: root
+      login_password: "{{ mysql_password }}"
+      login_host: "{{ login_host }}"
+      target: /app/schema/backend.sql
+      name: all
+      state: import
     

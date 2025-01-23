@@ -4,6 +4,13 @@
   vars:   
     mysql_password: ExpenceApp@1
     login_host: mysql.rajashekar-devops.online
+
+  tasks:
+  - name: installing apython packages
+    ansible.builtin.pip: PyMySQL
+
+
+
   tasks: 
   - name: install mysql
     ansible.builtin.package:

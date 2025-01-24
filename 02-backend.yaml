@@ -19,6 +19,8 @@
     loop:
     - nodejs
     - mysql
+    - boto3
+    - botocore
 
   - name: adding user
     ansible.builtin.user:

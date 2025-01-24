@@ -19,8 +19,6 @@
     loop:
     - nodejs
     - mysql
-    - boto3
-    - botocore
 
   - name: adding user
     ansible.builtin.user:
@@ -55,7 +53,10 @@
 
   - name: installing python packages
     ansible.builtin.pip: 
-      name: PyMySQL
+      name:
+      - PyMySQL
+      - boto3
+      - botocore
       executable: pip3.9
 
 

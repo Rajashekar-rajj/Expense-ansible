@@ -2,7 +2,7 @@
   hosts: mysql
   become: yes
   vars:   
-    mysql_password: ExpenceApp@1
+    mysql_password: ExpenseApp@1
     login_host: mysql.rajashekar-devops.online
   tasks: 
   - name: installing python packages

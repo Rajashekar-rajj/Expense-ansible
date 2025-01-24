@@ -57,10 +57,11 @@
       - PyMySQL
       - boto3
       - botocore
+      - cryptography
       executable: pip3.9
 
 
-  - name: import my sql data
+  - name: import mysql data
     community.mysql.mysql_db:
       login_user: root
       login_password: "{{ mysql_password }}"

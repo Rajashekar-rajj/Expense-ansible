@@ -67,5 +67,5 @@
       login_host: "{{ login_host }}"
       target: /app/schema/backend.sql
       name: all
-      state: import
+      state: dump
     
